@@ -15,7 +15,7 @@ to the best of your knowledge. Then you will live to see that in the long-run—
 the long-run, I say!—success will follow you precisely because you had forgotten 
 to think about it
 
-  --Viktor E. Frankl, Man's Search for Meaning
+-Viktor E. Frankl, Man's Search for Meaning
 
 ### Two
 
