@@ -43,11 +43,11 @@ from which the vast majority have never stirred?
 ### Four
 
 If you fulfill your obligations everyday you don't need to worry about the future.
-― Jordan Peterson
+- Jordan Peterson
 
 ### Five
 
 By any objective standard, the theory of computational complexity ranks as one 
 of the greatest intellectual achievements of humankind -- along with fire, the 
 wheel, and computability theory.
-― Scott Aaronson, Quantum Computing Since Democritus
+- Scott Aaronson, Quantum Computing Since Democritus
