@@ -70,6 +70,9 @@ function getRandomQuote(i = -1, qArr) {
 }
 
 
+// TODO - Refactor this function to not select DOM elements, but insert manually
+//  into the page.  This is to ensure I don't use more advanced topics.
+
 /***
  * Prints a random quote and attribution to the page.
 ***/
