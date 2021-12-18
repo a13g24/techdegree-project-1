@@ -42,14 +42,16 @@ let quotes = [
 
 /***
  * Gets a random quote from an array.  This function is called at least twice
- * in order to ensure duplicate indices aren't called consecutively.
+ * in order to ensure duplicate indices aren't called consecutively.  The chosen
+ * object that's returned is from indices 0 inclusive to qArr.length exclusive.
  * 
- * @param {number} i - The index to search for duplicates. Call it with no arg.
- * @returns {object} Returns an object literal of a quote
+ * @param {number} i - The index to search for duplicates. Call with default -1.
+ * @param {Object[]} qArr - An array of objects containing quotes and attributions.
+ * @returns {Object} Returns an object literal of a quote
 ***/
-function getRandomQuote(i = -1) {
+function getRandomQuote(i = -1, qArr) {
   const MIN = 0;
-  const MAX = quotes.length;
+  const MAX = qArr.length;
 
   // Generate random number between [MIN,MAX)
   let dex = Math.floor(Math.random() * (MAX - MIN) + MIN);
@@ -61,9 +63,9 @@ function getRandomQuote(i = -1) {
 
   // Only return if a repeated index is not found
   if (i !== dex) {
-    return quotes[dex];
+    return qArr[dex];
   } else { // Recursively calls function to avoid repeated quotes
-    return getRandomQuote(i)
+    return getRandomQuote(i, qArr)
   }
 }
 
@@ -82,7 +84,7 @@ function printQuote() {
   let sourceEl = el.lastElementChild;
 
   // Generate a random quote object
-  let quoteObj = getRandomQuote();
+  let quoteObj = getRandomQuote(undefined, quotes);
 
   // Insert quote into page
   quoteEl.innerText = `${quoteObj.quote}`;
