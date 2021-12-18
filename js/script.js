@@ -65,7 +65,7 @@ function getRandomQuote(i = -1, qArr) {
   if (i !== dex) {
     return qArr[dex];
   } else { // Recursively calls function to avoid repeated quotes
-    return getRandomQuote(i, qArr)
+    return getRandomQuote(i, qArr);
   }
 }
 
