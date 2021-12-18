@@ -65,9 +65,17 @@ function getRandomQuote(i = -1) {
 
 
 /***
- * `printQuote` function
+ * Prints a random quote and attribution to the page.
 ***/
+function printQuote() {
+  let el = document.getElementById('quote-box');
+  let quoteEl = el.firstElementChild;
+  let sourceEl = el.lastElementChild;
+  let quoteObj = getRandomQuote();
 
+  quoteEl.innerText = `${quoteObj.quote}`;
+  sourceEl.innerText = `${quoteObj.author} ${quoteObj.source !== '' ? ', ' + quoteObj.source : ''}`
+}
 
 
 /***
@@ -75,4 +83,4 @@ function getRandomQuote(i = -1) {
  * DO NOT CHANGE THE CODE BELOW!!
 ***/
 
-//document.getElementById('load-quote').addEventListener("click", printQuote, false);
+document.getElementById('load-quote').addEventListener("click", printQuote, false);
