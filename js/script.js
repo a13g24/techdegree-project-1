@@ -1,6 +1,8 @@
 /******************************************
 Treehouse FSJS Techdegree:
 project 1 - A Random Quote Generator
+author - Aaron Gomez
+date - 12/17/2021
 ******************************************/
 
 // For assistance: 
@@ -42,15 +44,17 @@ let quotes = [
  * Gets a random quote from an array.  This function is called at least twice
  * in order to ensure duplicate indices aren't called consecutively.
  * 
- * @param {number} i - The index to search for duplicates.
+ * @param {number} i - The index to search for duplicates. Call it with no arg.
  * @returns {object} Returns an object literal of a quote
 ***/
 function getRandomQuote(i = -1) {
   const MIN = 0;
   const MAX = quotes.length;
+
+  // Generate random number between [MIN,MAX)
   let dex = Math.floor(Math.random() * (MAX - MIN) + MIN);
 
-  // Set function param to calculated index first execution
+  // Set function param to calculated index on first execution only
   if (i === -1) {
     i = dex;
   }
@@ -68,12 +72,22 @@ function getRandomQuote(i = -1) {
  * Prints a random quote and attribution to the page.
 ***/
 function printQuote() {
+  // Get quote text box element
   let el = document.getElementById('quote-box');
+
+  // Get quote element
   let quoteEl = el.firstElementChild;
+
+  // Get source element
   let sourceEl = el.lastElementChild;
+
+  // Generate a random quote object
   let quoteObj = getRandomQuote();
 
+  // Insert quote into page
   quoteEl.innerText = `${quoteObj.quote}`;
+
+  // Insert source and citation (if available)
   sourceEl.innerText = `${quoteObj.author} ${quoteObj.source !== '' ? ', ' + quoteObj.source : ''}`
 }
 
