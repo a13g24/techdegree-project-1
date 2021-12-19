@@ -116,8 +116,37 @@ function printQuote() {
   // Insert quote into page
   quoteEl.innerText = `${quoteObj.quote}`;
 
+  // Boolean test to determine if any source attributes exist
+  let attributionExists = quoteObj.author   || 
+                          quoteObj.source   || 
+                          quoteObj.citation || 
+                          quoteObj.year;
+
   // Insert source and citation (if available)
-  sourceEl.innerText = `${quoteObj.author} ${quoteObj.source !== '' ? ', ' + quoteObj.source : ''}`
+  let sourceText = '';
+
+  // Set text for source info if it exists
+  if (attributionExists) {
+    sourceText = quoteObj.author;
+
+    console.log('sourceText = ' + sourceText);
+
+    // Insert citation if it exists
+    if (quoteObj.citation) {
+      sourceText += `<span class="citation">${quoteObj.citation}</span>`
+      console.log('citation exists');
+      console.log('sourceText = ' + sourceText);
+
+      // Insert year if it exists
+      if (quoteObj.year) {
+        sourceText += `<span class="year">${quoteObj.year}</span>`;
+        console.log('year exists');
+        console.log('sourceText = ' + sourceText);
+      }
+    }
+
+    sourceEl.innerHTML = sourceText;
+  }
 }
 
 
