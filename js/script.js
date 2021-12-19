@@ -129,19 +129,13 @@ function printQuote() {
   if (attributionExists) {
     sourceText = quoteObj.author;
 
-    console.log('sourceText = ' + sourceText);
-
     // Insert citation if it exists
     if (quoteObj.citation) {
       sourceText += `<span class="citation">${quoteObj.citation}</span>`
-      console.log('citation exists');
-      console.log('sourceText = ' + sourceText);
 
       // Insert year if it exists
       if (quoteObj.year) {
         sourceText += `<span class="year">${quoteObj.year}</span>`;
-        console.log('year exists');
-        console.log('sourceText = ' + sourceText);
       }
     }
 
