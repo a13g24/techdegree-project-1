@@ -139,6 +139,7 @@ function printQuote() {
       }
     }
 
+    // Insert source text into html doc
     sourceEl.innerHTML = sourceText;
   }
 }
