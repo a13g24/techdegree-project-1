@@ -192,8 +192,8 @@ function randomHex() {
 }
 
 // Executes the print function every N seconds
-const N = 1000;
-setInterval(printQuote, 10000);
+const N_SECS = 10000;
+setInterval(printQuote, N_SECS);
 
 
 /***
