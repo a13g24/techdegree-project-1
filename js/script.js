@@ -161,7 +161,7 @@ function randomHex() {
   let sixNums = '';     // array for holding six random numbers
   let hexNum = '';      // array for holding random selection of parallel arrays
 
-  // Function expression to generate a random index between [min,max]
+  // Function expression to generate a random index between [min,max)
   let randDex  = function(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
   };
