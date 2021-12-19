@@ -125,6 +125,11 @@ function printQuote() {
   if (attributionExists) {
     sourceText = quoteObj.author;
 
+    // Insert source if it exists
+    if (quoteObj.source) {
+      sourceText += `, ${quoteObj.source}`;
+    }
+
     // Insert citation if it exists
     if (quoteObj.citation) {
       sourceText += `<span class="citation">${quoteObj.citation}</span>`
