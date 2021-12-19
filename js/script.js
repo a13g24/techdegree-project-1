@@ -191,6 +191,10 @@ function randomHex() {
   return hexNum;
 }
 
+// Executes the print function every N seconds
+const N = 1000;
+setInterval(printQuote, 10000);
+
 
 /***
  * click event listener for the print quote button
