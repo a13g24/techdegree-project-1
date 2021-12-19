@@ -128,11 +128,11 @@ function printQuote() {
     // Insert citation if it exists
     if (quoteObj.citation) {
       sourceText += `<span class="citation">${quoteObj.citation}</span>`
+    }
 
-      // Insert year if it exists
-      if (quoteObj.year) {
-        sourceText += `<span class="year">${quoteObj.year}</span>`;
-      }
+    // Insert year if it exists
+    if (quoteObj.year) {
+      sourceText += `<span class="year">${quoteObj.year}</span>`;
     }
 
     // Insert source text into html doc
