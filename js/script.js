@@ -93,10 +93,6 @@ function getRandomQuote(i = -1, qArr) {
   }
 }
 
-
-// TODO - Refactor this function to not select DOM elements, but insert manually
-//  into the page.  This is to ensure I don't use more advanced topics.
-
 /***
  * Prints a random quote and attribution to the page.
 ***/
@@ -142,6 +138,57 @@ function printQuote() {
     // Insert source text into html doc
     sourceEl.innerHTML = sourceText;
   }
+
+  // Change the background color with a randomly generated hex number
+  document.body.style.backgroundColor = randomHex();
+}
+
+/**
+ * Creates two parallel arrays to generate a random hex number
+ */
+function randomHex() {
+  const ALPHA = 'ABCDEF';
+  const NUMS = '0123456789';
+  const MIN = 0;
+  const MAX = ALPHA.length;
+
+  let sixLetters = '';  // array for holding six random letters
+  let sixNums = '';     // array for holding six random numbers
+  let hexNum = '';      // array for holding random selection of parallel arrays
+
+  // Function expression to generate a random index between [min,max]
+  let randDex  = function(min, max) {
+    return Math.floor(Math.random() * (max - min) + min);
+  };
+
+  // Create random string of 6 letters between [A,F]
+  for (let i = 0; i < MAX; i++) {
+    sixLetters += ALPHA[randDex(MIN, ALPHA.length)];
+  }
+
+  // Create random string of 6 digits between [0,9]
+  for (let i = 0; i < MAX; i++) {
+    sixNums += NUMS[randDex(MIN, NUMS.length)];
+  }
+
+  // Choose randomly between the two strings to generate a random hex number
+  for (let i = 0; i < MAX; i++) {
+    // Flip a coin to decide between which array to choose from
+    let coinFlip = randDex(0, 2);
+
+    // 1: heads, choose from letter array
+    if (coinFlip) {
+      hexNum += sixLetters[randDex(MIN, MAX)];
+    } else { // 0: tails, choose from number array
+      hexNum += sixNums[randDex(MIN, MAX)];
+    }
+  }
+
+  // Prefix # to the new string
+  hexNum = '#' + hexNum;
+
+  // Return the hex number
+  return hexNum;
 }
 
 
